@@ -11,9 +11,11 @@
     <body >
         <h1 class = "title_page"> Welcome </h1>
         
+
         {% for folder in folders  %}
         
-            <a href= "{{url_for('{{cur_pth}}', filename= folder ) }}" > {{folder}}  </a>
+            <a href= "{{url_for('goto',pth = cur_pth, file= folder ) }}" >{{folder}}  </a>
+            
             <br><br>
         
         {% endfor %}
