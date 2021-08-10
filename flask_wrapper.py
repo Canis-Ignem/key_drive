@@ -63,9 +63,8 @@ def goto(pth,file):
 @app.route('/<string:file>')
 def send(file):
     
-    return str(os.path.join(session['pth'], file))
     try:
-        return send_file(os.path.join(app.config.get('STATIC_FOLDER'),file), as_attachment= True)
+        return send_file(os.path.join(session['pth'], file), as_attachment= True)
         
     except:
         
