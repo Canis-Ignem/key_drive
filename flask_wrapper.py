@@ -52,8 +52,9 @@ def get_file_tree():
 
 @app.route('/<path:pth>/<string:file>')
 def goto(pth,file):
-    
-    session['pth'] =  request.url[25:]
+    pth = request.url.split('/home')
+    return "/home" + pth[1:]
+    session['pth'] = "/home" + pth[1:]
     folders, files = get_file_tree()
     print(session['pth'])
     return render_template("index.html", folders = folders, files = files, cur_pth = request.url[25:] )
