@@ -59,7 +59,7 @@ def goto(pth,file):
     return render_template("index.html", folders = folders, files = files, cur_pth = request.url[25:] )
     
 
-'''
+
 @app.route('/<string:file>')
 def send(file):
     
@@ -71,7 +71,7 @@ def send(file):
         
         return "Something went wrong"
         
-'''   
+ 
 
 
 if __name__ == '__main__':
