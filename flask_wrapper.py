@@ -12,7 +12,7 @@ from werkzeug.routing import BaseConverter
 
 app = Flask(__name__, template_folder="./templates")
 
-root = "home"
+root = "/home/keystone/"
 aux_root = "home"
 
 app.secret_key = 'fat'
