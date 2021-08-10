@@ -22,7 +22,7 @@
         <br><br><br><br>
         {% for file in files  %}
         
-            <a href= "/download/{{file}}" > {{file}} </a>
+            <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > {{file}} </a>
             <br><br>
         
         {% endfor %}
