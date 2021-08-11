@@ -11,6 +11,8 @@ from werkzeug.routing import BaseConverter
 import db
 from md5 import md5
 
+from flask_dropzone import Dropzone
+
 app = Flask(__name__, template_folder="./templates")
 
 root = "/home/keystone/"
@@ -84,7 +86,13 @@ def login():
                         session['pth'] = os.path.join("/home/", user)
                     else:
                         return "There is no such user"
-                        
+                    
+                    app.config.update(
+                        UPLOADED_PATH= session['pth'],
+                        DROPZONE_MAX_FILE_SIZE=5120,
+                        DROPZONE_MAX_FILES=5*60*1000
+                    )
+                    dropzone = Dropzone(app)
                     
                     folders, files = get_file_tree()
                     return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
@@ -131,6 +139,14 @@ def sign_in():
             
     except:
         return "Something went wrong"
+
+@app.route('/upload',methods=['POST','GET'])  
+def upload(): 
+    if request.method == 'POST':
+        f = request.files.get('file')
+        f.save( os.path.join(session['pth'], f.filename) )
+        
+    return render_template('index.html')
 
 if __name__ == '__main__':
 
