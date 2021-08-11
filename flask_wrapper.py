@@ -137,7 +137,7 @@ def sign_in():
                 return "Some of the fields were not correct"
             
     except:
-        return "Something went wrong"
+        return "Something went wrong!"
 
 @app.route('/upload',methods=['POST','GET'])  
 def upload(): 
