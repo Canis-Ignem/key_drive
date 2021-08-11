@@ -128,7 +128,7 @@ def sign_in():
                 #os.popen("cd /home/{} \n source /home/anaconda3/bin/activate \n jupyter-notebook --no-browser ".format(user))
                 return render_template("index.html", name = session['uname'] )
             else:
-                return "Some of the fields where not correct"
+                return "Some of the fields were not correct"
             
     except:
         return "Something went wrong"
