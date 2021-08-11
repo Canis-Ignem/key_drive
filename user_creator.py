@@ -12,9 +12,9 @@ def add_user(username, password):
              passwd = p.read()
          crypt_pass = crypt.crypt(password, 'fat')
          os.popen("sudo useradd -m {} -U -p {} ".format(username,crypt_pass) , 'w').write(passwd)
-         sleep(1)
+         sleep(0.2)
          os.popen("sudo chown :{} /home/{}/ ".format(username, username) , 'w').write(passwd)
-         sleep(1)
+         sleep(0.2)
          os.popen("sudo chmod 777 /home/{}/".format(username) , 'w').write(passwd)
          return True 
      except:           
