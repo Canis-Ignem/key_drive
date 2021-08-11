@@ -52,7 +52,7 @@ def get_file_tree():
 
 
 @app.route('/<path:pth>/<string:file>')
-def goto(pth,file):
+def goto(pth):
     pth = request.url.split('/home')
     session['pth'] = "/home" + str(pth[1:])[2:-2]
     folders, files = get_file_tree()
@@ -97,7 +97,7 @@ def login():
                     dropzone = Dropzone(app)
                     
                     folders, files = get_file_tree()
-                    return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
+                    goto(session['pth'])
                     
                 else:
                     return "Pass missmatch"
