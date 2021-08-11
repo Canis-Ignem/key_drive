@@ -13,7 +13,8 @@ input[type = "file"] {
 }
 
 .DnD{
-    display: none;  
+    position: relative;
+    align-items: left;  
 }
 
 
@@ -62,11 +63,13 @@ input[type = "file"] {
 }
 
 .folders{
+    position: relative;
     align-self: left;
 }
 
 .files{
-    align-self: right;
+    position: relative;
+    align-self: center;
 }
 
 .logout{
