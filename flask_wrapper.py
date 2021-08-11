@@ -98,7 +98,7 @@ def login():
 
 @app.route("/drive/register")
 def register():
-    return "a" #render_template("register.html")
+    return render_template("register.html")
 
 @app.route("/sign", methods = ['POST'])
 def sign_in():
