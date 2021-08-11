@@ -25,11 +25,8 @@ def add_user(user, pas, email, DoB, country_of_residence, batch, gender ):
         
         md5_sum = md5(pas)
         conn.execute("INSERT INTO users (user, email, batch, md5,country_of_residence, gender, DoB) VALUES('{}','{}','{}','{}','{}','{}','{}')".format(user, email, batch, md5_sum, country_of_residence, gender, DoB))
-        if add_linux_user(user, pas):
-            
-            return True
-        else:
-            return False
+        return add_linux_user(user, pas)
+
     except:
         return False
 
@@ -99,5 +96,7 @@ def add_linux_user(username, password):
         os.popen("sudo -S %s"%("chown :{} /home/{}/ ".format(username, username)) , 'w').write(passwd)
         sleep(0.3)
         os.popen("sudo -S %s"%("sudo chmod 777 /home/{}/".format(username)), 'w').write(passwd)
+        sleep(0.3)
+        return True
     except:           
         return False

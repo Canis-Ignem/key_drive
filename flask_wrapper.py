@@ -121,11 +121,12 @@ def sign_in():
                 session['uname'] = user
                 session['email'] = email
                 session['batch'] = batch
+                
                 if os.path.isdir( os.path.join("/home", user) ):
                     session['pth'] = os.path.join("/home/", user)
                 else:
                     return "There is no such user"
-                
+                return "a"
                 app.config.update(
                     UPLOADED_PATH= session['pth'],
                     DROPZONE_MAX_FILE_SIZE=5120,
