@@ -98,7 +98,7 @@ def login():
     except:
         return "Something went wrong"
 
-@app.route("/register")
+@app.route("/drive/register")
 def register():
     return render_template("register.html")
 
