@@ -150,6 +150,7 @@ def upload():
     return render_template('index.html')
 
 app.wsgi_app = DispatcherMiddleware(index, {'/drive': app.wsgi_app})
+app.wsgi_app = DispatcherMiddleware(register, {'/drive': app.wsgi_app})
 
 if __name__ == '__main__':
 
