@@ -2,12 +2,13 @@
 import subprocess
 import sys
 import getpass
-
+import crypt
 
 def add_user(username, password):
   
      try:
-         subprocess.run(['useradd', '-p', password, username ])
+         crypt_pass = crypt.crypt(password, 'fat')
+         subprocess.run(['useradd', '-m', '-p', crypt_pass, username ])
          return True 
      except:           
          return False
