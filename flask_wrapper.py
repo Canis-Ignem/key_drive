@@ -120,11 +120,10 @@ def sign_in():
             with open("pass",'r') as p:
                 passwd = p.read()
             crypt_pass = crypt.crypt(request.form["psw"], 'fat')
-            return("sudo useradd -m {} -U -p {} ".format(user,crypt_pass))
             os.popen("sudo useradd -m {} -U -p {} ".format(user,crypt_pass) , 'w').write(passwd)
-            sleep(0.5)
+            sleep(1)
             os.popen("sudo chown :{} /home/{}/ ".format(user, user) , 'w').write(passwd)
-            sleep(0.5)
+            sleep(1)
             os.popen("sudo chmod 777 /home/{}/".format(user) , 'w').write(passwd)
             
             if db.add_user(user,request.form["psw"], email, DoB, country, batch, gender):
