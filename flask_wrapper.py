@@ -119,9 +119,13 @@ def sign_in():
                 session['uname'] = user
                 session['email'] = email
                 session['batch'] = batch
+                if os.path.isdir( os.path.join("/home", user) ):
+                    session['pth'] = os.path.join("/home/", user)
+                else:
+                    return "There is no such user"
+                folders, files = get_file_tree()
                 
-                #os.popen("cd /home/{} \n source /home/anaconda3/bin/activate \n jupyter-notebook --no-browser ".format(user))
-                return render_template("index.html", name = session['uname'] )
+                return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
             else:
                 return "Some of the fields were not correct"
             
