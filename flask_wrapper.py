@@ -116,16 +116,6 @@ def sign_in():
             batch = request.form["batch"]
             gender = request.form["gender"]
             
-            passwd = ""
-            with open("pass",'r') as p:
-                passwd = p.read()
-            crypt_pass = crypt.crypt(request.form["psw"], 'fat')
-            os.popen("sudo -S %s"%("useradd -m {} -U -p {} ".format(user,crypt_pass)), 'w').write(passwd)
-            sleep(0.3)
-            os.popen("sudo -S %s"%("chown :{} /home/{}/ ".format(user, user)) , 'w').write(passwd)
-
-            sleep(0.3)
-            os.popen("sudo -S %s"%("sudo chmod 777 /home/{}/".format(user)), 'w').write(passwd)
             
             if db.add_user(user,request.form["psw"], email, DoB, country, batch, gender):
                 session['uname'] = user
