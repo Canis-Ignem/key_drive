@@ -72,7 +72,7 @@ def send(file):
         return "Something went wrong"
         
 
-@app.route("/log", methods = ['POST'])
+@app.route("/home", methods = ['POST'])
 def login():
         if request.method != 'POST':
             return "hey"
