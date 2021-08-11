@@ -12,6 +12,10 @@ input[type = "file"] {
     display: none;  
 }
 
+.DnDUpload {
+    display: none;  
+}
+
 
 .uploads{
     position: absolute;
