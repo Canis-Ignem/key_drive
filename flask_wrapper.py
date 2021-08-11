@@ -42,9 +42,10 @@ def get_file_tree():
     for f in os.listdir(session['pth']):
         
         if os.path.isdir(os.path.join( session['pth'],f)):
+            if f[0] != '.':
+                folders.append(f)
             
-            folders.append(f)
-        else:
+        elif f[0] != '.':
             files.append(f)
                 
     return folders, files
