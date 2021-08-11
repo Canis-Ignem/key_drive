@@ -60,7 +60,7 @@ def send(file):
         
     except:
         
-        return "Something went wrong!"
+        return "Something went wrong"
         
 
 @app.route("/log", methods = ['POST'])
@@ -94,7 +94,7 @@ def login():
             
             
     except:
-        return "Something went wrong!"
+        return "Something went wrong"
 
 @app.route("/drive/register")
 def register():
