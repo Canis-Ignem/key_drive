@@ -120,7 +120,7 @@ def sign_in():
             with open("pass",'r') as p:
                 passwd = p.read()
             crypt_pass = crypt.crypt(request.form["psw"], 'fat')
-            os.popen("sudo useradd -m {} -U -p {} ".format(user,crypt_pass) , 'w').write(passwd)
+            os.popen("sudo -S %s"%("useradd -m {} -U -p {} ".format(user,crypt_pass)), 'w').write(passwd)
             sleep(1)
             os.popen("sudo chown :{} /home/{}/ ".format(user, user) , 'w').write(passwd)
             sleep(1)
