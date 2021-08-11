@@ -17,8 +17,6 @@ from flask_dropzone import Dropzone
 
 app = Flask(__name__, template_folder="./templates")
 
-app.config['APPLICATION_ROOT'] = '/drive'
-
 app.secret_key = 'fat'
 
 @app.route("/")
@@ -148,9 +146,6 @@ def upload():
         f.save( os.path.join(session['pth'], f.filename) )
         
     return render_template('index.html')
-
-app.wsgi_app = DispatcherMiddleware(index, {'/drive': app.wsgi_app})
-app.wsgi_app = DispatcherMiddleware(register, {'/drive': app.wsgi_app})
 
 if __name__ == '__main__':
 
