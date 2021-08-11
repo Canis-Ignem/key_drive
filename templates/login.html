@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>BridgeStone Drive</title>
+
+        <link rel="stylesheet" href="/static/css/login.css">
+        
+        <link rel="stylesheet" href="index.css" />
+
+    </head>
+
+    <body>
+        <div id="contenedor">
+            <div id="central">
+            
+                <br>
+                <div id="login">
+                    <div class="titulo">
+                        BridgeStone Drive
+                    </div>
+                    <form id="loginform" method="POST" action="/log" >
+                    
+                            <label for="uname"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="uname" required>
+                            <br><br>
+                            <label for="password"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" required>
+                            <br><br>
+                            <input type="submit" name = "Log in", value="Log in"/>
+                    
+                    </form>
+                    <div class="pie-form">
+                        <a href="/register">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+
+
+    
+    </body>
+</html>

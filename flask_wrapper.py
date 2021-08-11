@@ -8,7 +8,8 @@ import re
 import pandas as pd
 import time
 from werkzeug.routing import BaseConverter
-
+import db
+from md5 import md5
 
 app = Flask(__name__, template_folder="./templates")
 
@@ -28,11 +29,8 @@ app.url_map.converters['regex'] = RegexConverter
 @app.route("/")
 @app.route("/home")
 def index():
-    session['pth'] = root
-    folders, files = get_file_tree()
     
-    
-    return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
+    return render_template("login.html")
 
 def get_file_tree():
     
@@ -56,7 +54,7 @@ def goto(pth,file):
     session['pth'] = "/home" + str(pth[1:])[2:-2]
     folders, files = get_file_tree()
     print(session['pth'])
-    return render_template("index.html", folders = folders, files = files, cur_pth = request.url[25:] )
+    return render_template("index.html", folders = folders, files = files, cur_pth = "/home"+str(pth[1:])[2:-2] )
     
 
 
@@ -70,7 +68,33 @@ def send(file):
         
         return "Something went wrong"
         
- 
+
+@app.route("/log", methods = ['POST'])
+def login():
+    
+    try:
+        
+        if request.method == "POST":
+            user = request.form["uname"].lower()
+            if db.get_sum(user) == md5(request.form["psw"]):
+                
+                session['uname'] = user
+                session['email'] = db.get_email(user)
+                if os.path.isdir( os.path.join("/home", user) ):
+                    session['pth'] = os.path.join("/home/", user)
+                else:
+                    return "There is no such user"
+                    
+                
+                folders, files = get_file_tree()
+                return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
+                
+            else:
+                return "Pass missmatch"
+            
+            
+    except:
+        return "Something went wrong"
 
 
 if __name__ == '__main__':
