@@ -11,22 +11,26 @@
     <body >
         <h1 class = "title_page"> Welcome </h1>
         
+        <div class = "folders">
+            {% for folder in folders  %}
+            
+                <a href= "{{url_for('goto',pth = cur_pth, file= folder ) }}" > <input type="button"> {{folder}}  </a>
+                
+                <br><br>
+            
+            {% endfor %}
+        </div>  
+        
+        <div class = "files">
 
-        {% for folder in folders  %}
-        
-            <a href= "{{url_for('goto',pth = cur_pth, file= folder ) }}" >{{folder}}  </a>
+            {% for file in files  %}
             
-            <br><br>
-        
-        {% endfor %}
-        <br><br><br><br>
-        {% for file in files  %}
-        
-            <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > {{file}} </a>
-            <br><br>
-        
-        {% endfor %}
+                <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > <input type="button"> {{file}} </a>
+                <br><br>
             
+            {% endfor %}
+
+        </div>  
 
         
 
