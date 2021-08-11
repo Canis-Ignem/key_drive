@@ -15,18 +15,7 @@ from flask_dropzone import Dropzone
 
 app = Flask(__name__, template_folder="./templates")
 
-root = "/home/keystone/"
-aux_root = "home"
-
 app.secret_key = 'fat'
-
-
-class RegexConverter(BaseConverter):
-    def __init__(self, url_map, *items):
-        super(RegexConverter, self).__init__(url_map)
-        self.regex = items[0]
-
-app.url_map.converters['regex'] = RegexConverter
 
 @app.route("/")
 @app.route("/home")
