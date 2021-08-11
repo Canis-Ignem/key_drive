@@ -126,7 +126,6 @@ def sign_in():
                     session['pth'] = os.path.join("/home/", user)
                 else:
                     return "There is no such user"
-                return "a"
                 app.config.update(
                     UPLOADED_PATH= session['pth'],
                     DROPZONE_MAX_FILE_SIZE=5120,
