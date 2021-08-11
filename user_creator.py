@@ -1,14 +1,17 @@
 
-import subprocess
-import sys
-import getpass
+import os
 import crypt
 
 def add_user(username, password):
-  
+    
+    
+                        
      try:
+         passwd = ""
+         with open("pass",'r') as p:
+             passwd = p.read()
          crypt_pass = crypt.crypt(password, 'fat')
-         subprocess.run(['useradd', '-m', '-p', crypt_pass, username ])
+         os.popen("sudo useradd -m {} -p {}".format(username,crypt_pass) , 'w').write(passwd)
          return True 
      except:           
          return False
