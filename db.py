@@ -89,9 +89,7 @@ def get_grades(batch,email,ex):
 
 
 def add_linux_user(username, password):
-    
-    
-                        
+                         
      try:
          passwd = ""
          with open("pass",'r') as p:

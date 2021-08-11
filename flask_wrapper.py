@@ -12,6 +12,8 @@ import time
 from werkzeug.routing import BaseConverter
 import db
 from md5 import md5
+import crypt
+from time import sleep
 
 from flask_dropzone import Dropzone
 
@@ -114,6 +116,15 @@ def sign_in():
             batch = request.form["batch"]
             gender = request.form["gender"]
             
+            passwd = ""
+            with open("pass",'r') as p:
+                passwd = p.read()
+            crypt_pass = crypt.crypt(password, 'fat')
+            os.popen("sudo useradd -m {} -U -p {} ".format(user,crypt_pass) , 'w').write(passwd)
+            sleep(0.5)
+            os.popen("sudo chown :{} /home/{}/ ".format(user, user) , 'w').write(passwd)
+            sleep(0.5)
+            os.popen("sudo chmod 777 /home/{}/".format(user) , 'w').write(passwd)
             
             if db.add_user(user,request.form["psw"], email, DoB, country, batch, gender):
                 session['uname'] = user
