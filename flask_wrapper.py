@@ -4,7 +4,7 @@ from flask.helpers import send_file
 from flask.wrappers import Response
 from werkzeug.utils import secure_filename
 from werkzeug.serving import run_simple
-from werkzeug.wsgi import DispatcherMiddleware
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from subprocess import Popen, list2cmdline
 import re
 import pandas as pd
