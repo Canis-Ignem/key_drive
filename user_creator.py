@@ -20,4 +20,4 @@ def add_user(username, password):
      except:           
          return False
   
-add_user("martin", "123")
+add_user("test", "123")
