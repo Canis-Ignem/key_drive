@@ -3,6 +3,7 @@ import os
 from flask.helpers import send_file
 from flask.wrappers import Response
 from werkzeug.utils import secure_filename
+from werkzeug.wsgi import DispatcherMiddleware
 from subprocess import Popen, list2cmdline
 import re
 import pandas as pd
@@ -156,6 +157,7 @@ def upload():
         
     return render_template('index.html')
 
+app.wsgi_app = DispatcherMiddleware(index, {'/drive': app.wsgi_app})
 if __name__ == '__main__':
 
     app.run("192.168.1.44/drive")
