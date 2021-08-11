@@ -61,9 +61,12 @@ input[type = "file"] {
     
 }
 
-.jupyer_link{
-    bottom: 20%;
-    left: 30%;
+.folders{
+    align-self: left;
+}
+
+.files{
+    align-self: right;
 }
 
 .logout{
