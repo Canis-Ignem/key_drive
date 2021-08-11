@@ -97,7 +97,7 @@ def login():
                     dropzone = Dropzone(app)
                     
                     folders, files = get_file_tree()
-                    goto(session['pth'])
+                    redirect(session['pth'])
                     
                 else:
                     return "Pass missmatch"
