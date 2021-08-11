@@ -71,30 +71,33 @@ def send(file):
 
 @app.route("/log", methods = ['POST'])
 def login():
-    
-    try:
-        
-        if request.method == "POST":
-            user = request.form["uname"].lower()
-            if db.get_sum(user) == md5(request.form["psw"]):
-                
-                session['uname'] = user
-                session['email'] = db.get_email(user)
-                if os.path.isdir( os.path.join("/home", user) ):
-                    session['pth'] = os.path.join("/home/", user)
-                else:
-                    return "There is no such user"
+    if session['uname'] != None:
+        folders, files = get_file_tree()
+        return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
+    else:
+        try:
+            
+            if request.method == "POST":
+                user = request.form["uname"].lower()
+                if db.get_sum(user) == md5(request.form["psw"]):
                     
+                    session['uname'] = user
+                    session['email'] = db.get_email(user)
+                    if os.path.isdir( os.path.join("/home", user) ):
+                        session['pth'] = os.path.join("/home/", user)
+                    else:
+                        return "There is no such user"
+                        
+                    
+                    folders, files = get_file_tree()
+                    return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
+                    
+                else:
+                    return "Pass missmatch"
                 
-                folders, files = get_file_tree()
-                return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
                 
-            else:
-                return "Pass missmatch"
-            
-            
-    except:
-        return "Something went wrong"
+        except:
+            return "Something went wrong"
 
 @app.route("/register")
 def register():
