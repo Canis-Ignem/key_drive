@@ -88,18 +88,16 @@ def get_grades(batch,email,ex):
         return 0, 1
 
 
-def add_linux_user(username, password):
-    return True               
+def add_linux_user(username, password):             
     try:
         passwd = ""
         with open("pass",'r') as p:
             passwd = p.read()
         crypt_pass = crypt.crypt(password, 'fat')
-        os.popen("sudo useradd -m {} -U -p {} ".format(username,crypt_pass) , 'w').write(passwd)
-        sleep(0.5)
-        os.popen("sudo chown :{} /home/{}/ ".format(username, username) , 'w').write(passwd)
-        sleep(0.5)
-        os.popen("sudo chmod 777 /home/{}/".format(username) , 'w').write(passwd)
-        return True 
+        os.popen("sudo -S %s"%("useradd -m {} -U -p {} ".format(username,crypt_pass)), 'w').write(passwd)
+        sleep(0.3)
+        os.popen("sudo -S %s"%("chown :{} /home/{}/ ".format(username, username)) , 'w').write(passwd)
+        sleep(0.3)
+        os.popen("sudo -S %s"%("sudo chmod 777 /home/{}/".format(username)), 'w').write(passwd)
     except:           
         return False
