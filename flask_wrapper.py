@@ -71,10 +71,7 @@ def send(file):
 
 @app.route("/log", methods = ['POST'])
 def login():
-    if session['uname'] != None:
-        folders, files = get_file_tree()
-        return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
-    else:
+
         try:
             
             if request.method == "POST":
