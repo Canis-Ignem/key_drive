@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <title>BridgeStone Drive</title>
 
-        <link rel="stylesheet" href="/static/css/login.css">
+        <link rel="stylesheet" href="/drive/static/css/login.css">
         
         <link rel="stylesheet" href="index.css" />
 
@@ -21,7 +21,7 @@
                     <div class="titulo">
                         BridgeStone Drive
                     </div>
-                    <form id="loginform" method="POST" action="/log" >
+                    <form id="loginform" method="POST" action="{{url_for('login')}}" >
                     
                             <label for="uname"><b>Username</b></label>
                             <input type="text" placeholder="Enter Username" name="uname" required>
