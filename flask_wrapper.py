@@ -74,7 +74,8 @@ def send(file):
 
 @app.route("/log", methods = ['POST'])
 def login():
-
+        if not request.form['username'] or not request.form['password']:
+            return "hey"
         try:
             
             if request.method == "POST":
