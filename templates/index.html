@@ -26,7 +26,7 @@
 
             {% for file in files  %}
             
-                <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > <input type="button"> {{file}} </a>
+                <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > <input type="button", value={{file}}>  </a>
                 <br><br>
             
             {% endfor %}
