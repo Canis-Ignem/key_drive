@@ -57,7 +57,7 @@ def goto(pth, file):
     session['pth'] = "/home" + str(pth[1:])[2:-2]
     folders, files = get_file_tree()
     print(session['pth'])
-    return render_template("index.html", folders = folders, files = files, cur_pth = "/home"+str(pth[1:])[2:-2] )
+    return render_template("index.html", folders = folders, files = files, cur_pth = "/home"+str(pth[1:])[2:-2], cur_folder= session['pth'].split('/')[-1] ) 
     
 
 
