@@ -25,8 +25,11 @@ def add_user(user, pas, email, DoB, country_of_residence, batch, gender ):
         
         md5_sum = md5(pas)
         conn.execute("INSERT INTO users (user, email, batch, md5,country_of_residence, gender, DoB) VALUES('{}','{}','{}','{}','{}','{}','{}')".format(user, email, batch, md5_sum, country_of_residence, gender, DoB))
-        add_linux_user(user, pas)
-        return True
+        if add_linux_user(user, pas):
+            
+            return True
+        else:
+            return False
     except:
         return False
 
