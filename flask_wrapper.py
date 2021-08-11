@@ -157,9 +157,13 @@ def upload():
         
     return render_template('index.html')
 
-app.wsgi_app = DispatcherMiddleware(index, {'/drive': app.wsgi_app})
+def simple(env, resp):
+    resp(b'200 OK', [(b'Content-Type', b'text/plain')])
+    return [b'Hello WSGI World']
+
+app.wsgi_app = DispatcherMiddleware(simple, {'/drive': app.wsgi_app})
 if __name__ == '__main__':
 
-    app.run("192.168.1.44/drive")
+    app.run("192.168.1.44")
 
     
