@@ -52,7 +52,7 @@ def get_file_tree():
 
 
 @app.route('/<path:pth>/<string:file>')
-def goto(pth):
+def goto(pth, file):
     pth = request.url.split('/home')
     session['pth'] = "/home" + str(pth[1:])[2:-2]
     folders, files = get_file_tree()
@@ -74,37 +74,36 @@ def send(file):
 
 @app.route("/log", methods = ['POST'])
 def login():
-        if request.method != 'POST':
-            return "hey"
-        try:
-            
-            if request.method == "POST":
-                user = request.form["uname"].lower()
-                if db.get_sum(user) == md5(request.form["psw"]):
-                    
-                    session['uname'] = user
-                    session['email'] = db.get_email(user)
-                    if os.path.isdir( os.path.join("/home", user) ):
-                        session['pth'] = os.path.join("/home/", user)
-                    else:
-                        return "There is no such user"
-                    
-                    app.config.update(
-                        UPLOADED_PATH= session['pth'],
-                        DROPZONE_MAX_FILE_SIZE=5120,
-                        DROPZONE_MAX_FILES=5*60*1000
-                    )
-                    dropzone = Dropzone(app)
-                    
-                    folders, files = get_file_tree()
-                    redirect(session['pth'])
-                    
+
+    try:
+        
+        if request.method == "POST":
+            user = request.form["uname"].lower()
+            if db.get_sum(user) == md5(request.form["psw"]):
+                
+                session['uname'] = user
+                session['email'] = db.get_email(user)
+                if os.path.isdir( os.path.join("/home", user) ):
+                    session['pth'] = os.path.join("/home/", user)
                 else:
-                    return "Pass missmatch"
+                    return "There is no such user"
                 
+                app.config.update(
+                    UPLOADED_PATH= session['pth'],
+                    DROPZONE_MAX_FILE_SIZE=5120,
+                    DROPZONE_MAX_FILES=5*60*1000
+                )
+                dropzone = Dropzone(app)
                 
-        except:
-            return "Something went wrong"
+                folders, files = get_file_tree()
+                redirect(url_for('goto',pth = session['pth'], file= folders ))
+                
+            else:
+                return "Pass missmatch"
+            
+            
+    except:
+        return "Something went wrong"
 
 @app.route("/register")
 def register():
