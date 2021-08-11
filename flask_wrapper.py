@@ -14,7 +14,7 @@ from md5 import md5
 from flask_dropzone import Dropzone
 
 app = Flask(__name__, template_folder="./templates")
-
+app.config["APPLICATION_ROOT"] = "/drive"
 root = "/home/keystone/"
 aux_root = "home"
 
@@ -105,7 +105,7 @@ def login():
     except:
         return "Something went wrong"
 
-@app.route("/drive/register")
+@app.route("/register")
 def register():
     return render_template("register.html")
 
