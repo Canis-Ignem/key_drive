@@ -95,7 +95,6 @@ def login():
                 )
                 dropzone = Dropzone(app)
                 
-                folders, files = get_file_tree()
                 url = url_for('goto',pth = session['pth'], file = "")[:-1]
                 return redirect(url)
                 
@@ -133,9 +132,16 @@ def sign_in():
                     session['pth'] = os.path.join("/home/", user)
                 else:
                     return "There is no such user"
-                folders, files = get_file_tree()
                 
-                return render_template("index.html", folders = folders, files = files, cur_pth = session['pth']  )
+                app.config.update(
+                    UPLOADED_PATH= session['pth'],
+                    DROPZONE_MAX_FILE_SIZE=5120,
+                    DROPZONE_MAX_FILES=5*60*1000
+                )
+                dropzone = Dropzone(app)
+                
+                url = url_for('goto',pth = session['pth'], file = "")[:-1]
+                return redirect(url)
             else:
                 return "Some of the fields were not correct"
             

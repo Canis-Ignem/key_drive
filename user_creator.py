@@ -19,5 +19,3 @@ def add_user(username, password):
          return True 
      except:           
          return False
-  
-add_user("test", "123")

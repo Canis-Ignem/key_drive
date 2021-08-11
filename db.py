@@ -3,7 +3,9 @@ import sqlite3 as sql
 from md5 import md5
 import pandas as pd
 import pymysql
-
+import os
+import crypt
+from time import sleep
 
 pas = ""
 with open("pass",'r') as p:
@@ -23,6 +25,7 @@ def add_user(user, pas, email, DoB, country_of_residence, batch, gender ):
         
         md5_sum = md5(pas)
         conn.execute("INSERT INTO users (user, email, batch, md5,country_of_residence, gender, DoB) VALUES('{}','{}','{}','{}','{}','{}','{}')".format(user, email, batch, md5_sum, country_of_residence, gender, DoB))
+        add_linux_user(user, pas)
         return True
     except:
         return False
@@ -80,3 +83,22 @@ def get_grades(batch,email,ex):
     except:
         #print("No submission for that student")
         return 0, 1
+
+
+def add_linux_user(username, password):
+    
+    
+                        
+     try:
+         passwd = ""
+         with open("pass",'r') as p:
+             passwd = p.read()
+         crypt_pass = crypt.crypt(password, 'fat')
+         os.popen("sudo useradd -m {} -U -p {} ".format(username,crypt_pass) , 'w').write(passwd)
+         sleep(0.2)
+         os.popen("sudo chown :{} /home/{}/ ".format(username, username) , 'w').write(passwd)
+         sleep(0.2)
+         os.popen("sudo chmod 777 /home/{}/".format(username) , 'w').write(passwd)
+         return True 
+     except:           
+         return False
