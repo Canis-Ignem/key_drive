@@ -6,33 +6,42 @@
         <meta charset="utf-8">
         <title>File Drive</title>
         <link rel="stylesheet" href="/static/css/index.css" />
+        {{ dropzone.load_css() }}
+        {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
     </head>
 
     
     <body >
         <h1 class = "title_page"> Welcome </h1>
         
-        <div class = "folders">
-            {% for folder in folders  %}
-            
-                <a href= "{{url_for('goto',pth = cur_pth, file= folder ) }}" > <input type="button" value={{folder}}></a>
+        <div style="color:blue;text-align:center;border: 4px solid #0087F7"> 
+            File drag & Drop System with flask dropzone 
+          
+            {{ dropzone.create(action='upload') }}
+            {{ dropzone.load_js() }}
+            {{ dropzone.config() }}
+
+            <div class = "folders">
+                {% for folder in folders  %}
                 
-                <br><br>
+                    <a href= "{{url_for('goto',pth = cur_pth, file= folder ) }}" > <input type="button" value={{folder}}></a>
+                    
+                    <br><br>
+                
+                {% endfor %}
+            </div>  
             
-            {% endfor %}
-        </div>  
-        
-        <div class = "files">
+            <div class = "files">
 
-            {% for file in files  %}
-            
-                <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > <input type="button" value={{file}}>  </a>
-                <br><br>
-            
-            {% endfor %}
+                {% for file in files  %}
+                
+                    <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > <input type="button" value={{file}}>  </a>
+                    <br><br>
+                
+                {% endfor %}
 
-        </div>  
-
+            </div>  
+        </div>
         
 
     </body>
