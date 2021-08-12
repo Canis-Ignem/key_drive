@@ -1,11 +1,16 @@
+# SQL
 from sqlalchemy import create_engine
 import sqlite3 as sql
-from md5 import md5
-import pandas as pd
 import pymysql
-import os
-import crypt
+
+#Utils
 from time import sleep
+import pandas as pd
+import crypt
+import os
+
+#Drive Utils
+from md5 import md5
 
 pas = ""
 with open("pass",'r') as p:

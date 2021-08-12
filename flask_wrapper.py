@@ -1,21 +1,16 @@
+#Flask
 from flask import Flask, render_template, request, session, url_for, redirect
-import os
 from flask.helpers import send_file
-from flask.wrappers import Response
-from werkzeug.utils import secure_filename
-from werkzeug.serving import run_simple
-from werkzeug.middleware.dispatcher import DispatcherMiddleware
-from subprocess import Popen, list2cmdline
-import re
-import pandas as pd
-import time
-from werkzeug.routing import BaseConverter
-import db
-from md5 import md5
-import crypt
-from time import sleep
-
 from flask_dropzone import Dropzone
+
+#Utils
+import os
+
+#Drive Utils
+from md5 import md5
+import db
+
+
 
 app = Flask(__name__, template_folder="./templates")
 
