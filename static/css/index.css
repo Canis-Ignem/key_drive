@@ -21,16 +21,14 @@ input[type = "file"] {
 }
 
 .folders{
-    top: 15%;
     float: left;
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
     height: 50%;
     position: relative;
 }
 
 #boxes {
+    top: 15%;
     content: "";
     display: table;
     clear: both;
@@ -38,9 +36,9 @@ input[type = "file"] {
 
 .files{
     float: left;
-    height: 470px;
-    width: 23%;
-    padding: 0 10px;
+    width: 50%;
+    height: 50%;
+    padding: 0 50px;
 }
 
 .title_page{
