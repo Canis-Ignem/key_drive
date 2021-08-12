@@ -28,7 +28,7 @@ input[type = "file"] {
     content: "";
     display: table;
     clear: both;
-    z-index: 0;
+    z-index: 1;
     position: absolute;
   }
 
@@ -37,7 +37,7 @@ input[type = "file"] {
     height: 100%;
     width: 23%;
     padding: 0% 100px;
-    z-index: 0;
+    z-index: 1;
     position: relative;
 }
 
@@ -46,7 +46,7 @@ input[type = "file"] {
     height: 100%;
     width: 23%;
     padding: 0% 100px;
-    z-index: 0;
+    z-index: 1;
     position: relative;
 }
 
