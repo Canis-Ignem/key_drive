@@ -37,6 +37,7 @@ input[type = "file"] {
     display: table;
     clear: both;
     z-index: 1;
+    position: relative;
   }
 
 .files{
