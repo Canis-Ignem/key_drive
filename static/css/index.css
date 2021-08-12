@@ -38,6 +38,7 @@ input[type = "file"] {
     width: 23%;
     padding: 0% 100px;
     z-index: 2;
+    position: relative;
 }
 
 .files{
@@ -46,6 +47,7 @@ input[type = "file"] {
     width: 23%;
     padding: 0% 100px;
     z-index: 2;
+    position: relative;
 }
 
 .title_page{
