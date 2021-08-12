@@ -30,6 +30,12 @@ input[type = "file"] {
     position: relative;
 }
 
+#boxes {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
 .files{
     top: 0%;
     float: right;

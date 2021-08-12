@@ -19,27 +19,29 @@
             {{ dropzone.create(action='upload') }}
             {{ dropzone.load_js() }}
             {{ dropzone.config() }}
-        
-            <div class = "folders">
-                {% for folder in folders  %}
-                
-                    <a href= "{{url_for('goto',pth = cur_pth, file= folder ) }}" > <input type="button" value={{folder}}></a>
-                    
-                    <br><br>
-                
-                {% endfor %}
-            </div>  
             
-            <div class = "files">
-
-                {% for file in files  %}
+            <main id= "boxes">
+                <div class = "folders">
+                    {% for folder in folders  %}
+                    
+                        <a href= "{{url_for('goto',pth = cur_pth, file= folder ) }}" > <input type="button" value={{folder}}></a>
+                        
+                        <br><br>
+                    
+                    {% endfor %}
+                </div>  
                 
-                    <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > <input type="button" value={{file}}>  </a>
-                    <br><br>
-                
-                {% endfor %}
+                <div class = "files">
 
-            </div>  
+                    {% for file in files  %}
+                    
+                        <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > <input type="button" value={{file}}>  </a>
+                        <br><br>
+                    
+                    {% endfor %}
+
+                </div>
+            </main>
         
         </div>
 
