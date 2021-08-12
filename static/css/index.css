@@ -28,8 +28,8 @@ input[type = "file"] {
     content: "";
     display: table;
     clear: both;
-    z-index: 2;
-    position: absolute;
+    z-index: 0;
+    position: realtive;
   }
 
 .folders{
@@ -37,7 +37,7 @@ input[type = "file"] {
     height: 100%;
     width: 23%;
     padding: 0% 100px;
-    z-index: 2;
+    z-index: 0;
     position: relative;
 }
 
@@ -46,7 +46,7 @@ input[type = "file"] {
     height: 100%;
     width: 23%;
     padding: 0% 100px;
-    z-index: 2;
+    z-index: 0;
     position: relative;
 }
 
