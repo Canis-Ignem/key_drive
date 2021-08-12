@@ -28,7 +28,7 @@ input[type = "file"] {
     content: "";
     display: table;
     clear: both;
-    z-index: 1;
+    z-index: 2;
   }
 
 .folders{
