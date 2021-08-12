@@ -24,7 +24,7 @@ input[type = "file"] {
 }
 
 #boxes {
-    top: 15%;
+    top: 5%;
     content: "";
     display: table;
     clear: both;
