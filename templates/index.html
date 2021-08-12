@@ -7,7 +7,7 @@
         <title>BridgeStone Drive</title>
         <link rel="stylesheet" href="/drive/static/css/index.css" />
         {{ dropzone.load_css() }}
-        {{ dropzone.style('position:fixed; top:0; left:0; width:100%; height:100%;border: 0px margin: 10%;  opacity: 0.1; z-index: 1;') }}
+        {{ dropzone.style('position:fixed; top:15%; left:0; width:100%; height:100%;border: 0px margin: 10%;  opacity: 0.1; z-index: 1;') }}
     </head>
 
     
@@ -15,11 +15,13 @@
         
         <h1 class = "title_page"> {{cur_folder}} </h1>
         
-        <div class='placeholder' onclick= 'return False' >
-            <h2>Drag & Drop Area</h2>
+        <div class='placeholder' >
+
             {{ dropzone.create(action='upload') }}
             {{ dropzone.load_js() }}
             {{ dropzone.config() }}
+            {{ dropzone.config(custom_init='dz = this;',
+                 custom_options='autoProcessQueue: false, addRemoveLinks: true, parallelUploads: 20,') }}
         
             <div id= "boxes">
                 <div class = "folders">
