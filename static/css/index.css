@@ -4,6 +4,7 @@ body {
     background-size:cover;
     min-height: 100vh;
     color: white;
+    z-index: -1;
 
 }
 
@@ -18,11 +19,11 @@ input[type = "file"] {
     height: 470px;
     width: 23%;
     padding: 0% 50px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .placeholder{
-    z-index: -1;
+    z-index: -10;
 }
 
 #boxes {
@@ -38,7 +39,7 @@ input[type = "file"] {
     height: 470px;
     width: 23%;
     padding: 0% 50px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .title_page{
