@@ -23,14 +23,12 @@ input[type = "file"] {
 .folders{
     width: 50%;
     height: 50%;
-    left:50%;
     position: relative;
 }
 
 .files{
     width: 50%;
     height: 50%;
-    left:50%;
     position: relative;
 }
 
