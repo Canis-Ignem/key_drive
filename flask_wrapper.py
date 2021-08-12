@@ -84,8 +84,10 @@ def login():
                 app.config.update(
                     UPLOADED_PATH= session['pth'],
                     DROPZONE_MAX_FILE_SIZE=5120,
-                    DROPZONE_MAX_FILES=5*60*1000,
-                    DROPZONE_UPLOAD_ON_CLICK = False
+                    DROPZONE_MAX_FILES=30,
+                    DROPZONE_UPLOAD_ON_CLICK = False,
+                    DROPZONE_PARALLEL_UPLOADS=10,  
+                    DROPZONE_UPLOAD_MULTIPLE=True, 
                 )
                 dropzone = Dropzone(app)
                 
@@ -130,8 +132,10 @@ def sign_in():
                 app.config.update(
                     UPLOADED_PATH= session['pth'],
                     DROPZONE_MAX_FILE_SIZE=5120,
-                    DROPZONE_MAX_FILES=5*60*1000,
-                    DROPZONE_UPLOAD_ON_CLICK = False
+                    DROPZONE_MAX_FILES=30,
+                    DROPZONE_UPLOAD_ON_CLICK = False,
+                    DROPZONE_PARALLEL_UPLOADS=10,  
+                    DROPZONE_UPLOAD_MULTIPLE=True,  
                 )
                 dropzone = Dropzone(app)
                 
