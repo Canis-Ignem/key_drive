@@ -29,6 +29,8 @@ input[type = "file"] {
 }
 
 .files{
+    top: 15%;
+    left: 5%;
     width: 50%;
     height: 50%;
     position: relative;
