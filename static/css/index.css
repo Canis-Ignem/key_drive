@@ -24,7 +24,7 @@ input[type = "file"] {
     float: left;
     height: 470px;
     width: 23%;
-    padding: 15% 30%;
+    padding: 25% 10px;
 }
 
 #boxes {
@@ -38,7 +38,7 @@ input[type = "file"] {
     float: left;
     height: 470px;
     width: 23%;
-    padding: 15% 30%;
+    padding: 25% 10px;
 }
 
 .title_page{
