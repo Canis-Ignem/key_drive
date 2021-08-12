@@ -14,13 +14,13 @@
     <body >
         
         <h1 class = "title_page"> {{cur_folder}} </h1>
-        
+        <main id= "boxes"></main>
         <div class='placeholder' > 
             {{ dropzone.create(action='upload') }}
             {{ dropzone.load_js() }}
             {{ dropzone.config() }}
         
-        <main id= "boxes">
+        
             <div class = "folders">
                 <h2>Folders</h2>
                 {% for folder in folders  %}
@@ -42,8 +42,9 @@
                 {% endfor %}
 
             </div>
-        </main>
+        
         </div>
+    </main>
         
         
 
