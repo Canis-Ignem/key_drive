@@ -31,6 +31,7 @@ input[type = "file"] {
 }
 
 #boxes {
+    top: 15%;
     content: "";
     display: table;
     clear: both;
