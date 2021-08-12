@@ -29,6 +29,7 @@ input[type = "file"] {
     display: table;
     clear: both;
     z-index: 2;
+    position: relative;
   }
 
 .folders{
@@ -93,6 +94,7 @@ button, input[type="button"], input[type="submit"] {
     margin-top:10px;
     margin-bottom:10px;
     min-width: 240px;
+    position: absolute;
     z-index: 3;
 }
 
