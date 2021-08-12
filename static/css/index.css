@@ -13,48 +13,30 @@ input[type = "file"] {
 }
 
 .DnD{
-    position: relative;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
 }
 
-
-.uploads{
-    position: absolute;
-    left: 12%;
-    display: flex;
-    flex-direction: row;
-    
+.folders{
+    width: 50%;
+    height: 50%;
+    left:50%;
+    position: relative;
 }
 
-.upload_nbg{
-    
-    padding: 50px;
-    margin: 50px;
-    display: inline-block;
-    
+.files{
+    width: 50%;
+    height: 50%;
+    left:50%;
+    position: relative;
 }
 
 .title_page{
     padding: 50px;
     color: #01FF84
-}
-
-.upload_acc{
-    
-    padding: 50px;
-    margin: 50px;
-    display: inline-block;
-}
-
-.upload_jupyter{
-    padding: 50px;
-    margin: 50px;
-    display: inline-block;
-    
 }
 
 .links{
@@ -66,15 +48,6 @@ input[type = "file"] {
     
 }
 
-.folders{
-    position: relative;
-    align-self: left;
-}
-
-.files{
-    position: relative;
-    align-self: center;
-}
 
 .logout{
     bottom: 20%;
