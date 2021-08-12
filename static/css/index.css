@@ -31,7 +31,6 @@ input[type = "file"] {
 }
 
 #boxes {
-    top: 15%;
     content: "";
     display: table;
     clear: both;
@@ -39,9 +38,9 @@ input[type = "file"] {
 
 .files{
     float: left;
-    width: 50%;
-    height: 50%;
-    padding: 0 50px;
+    height: 470px;
+    width: 23%;
+    padding: 0 10px;
 }
 
 .title_page{
