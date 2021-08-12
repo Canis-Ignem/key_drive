@@ -29,7 +29,7 @@ input[type = "file"] {
     display: table;
     clear: both;
     z-index: 2;
-    position: relative;
+    position: absolute;
   }
 
 .folders{
