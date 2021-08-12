@@ -96,7 +96,7 @@ button, input[type="button"], input[type="submit"] {
     margin-top:10px;
     margin-bottom:10px;
     min-width: 240px;
-    position: absolute;
+    position: relative;
     z-index: 3;
 }
 
