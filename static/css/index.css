@@ -22,7 +22,7 @@ input[type = "file"] {
 
 .folders{
     top: 15%;
-    left: 10%;
+    left: 0;
     width: 50%;
     height: 50%;
     position: relative;
