@@ -36,7 +36,7 @@ input[type = "file"] {
     height: 100%;
     width: 23%;
     padding: 0% 100px;
-    z-index: 0;
+    z-index: 2;
 }
 
 .files{
@@ -44,7 +44,7 @@ input[type = "file"] {
     height: 100%;
     width: 23%;
     padding: 0% 100px;
-    z-index: 0;
+    z-index: 2;
 }
 
 .title_page{
@@ -93,7 +93,7 @@ button, input[type="button"], input[type="submit"] {
     margin-top:10px;
     margin-bottom:10px;
     min-width: 240px;
-    z-index: -1;
+    z-index: 3;
 }
 
 
