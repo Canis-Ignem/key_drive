@@ -22,6 +22,7 @@
             
             <main id= "boxes">
                 <div class = "folders">
+                    <h2>Folders</h2>
                     {% for folder in folders  %}
                     
                         <a href= "{{url_for('goto',pth = cur_pth, file= folder ) }}" > <input type="button" value={{folder}}></a>
@@ -32,7 +33,7 @@
                 </div>  
                 
                 <div class = "files">
-
+                    <h2>Files</h2>
                     {% for file in files  %}
                     
                         <a href= "{{url_for('send',pth = cur_pth, file= file ) }}" > <input type="button" value={{file}}>  </a>

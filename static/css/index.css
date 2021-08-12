@@ -46,6 +46,11 @@ input[type = "file"] {
     color: #01FF84
 }
 
+h2 {
+    color: #01FF84;
+    text-align: center;
+  }
+
 .links{
     position: absolute;
     left: 32%;
