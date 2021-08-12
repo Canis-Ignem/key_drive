@@ -33,6 +33,7 @@ input[type = "file"] {
     content: "";
     display: table;
     clear: both;
+    z-index: 100;
   }
 
 .files{
