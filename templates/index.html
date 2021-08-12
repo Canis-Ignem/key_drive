@@ -19,10 +19,7 @@
 
             {{ dropzone.create(action='upload') }}
             {{ dropzone.load_js() }}
-            {{ dropzone.config() }}
-            {{ dropzone.config(custom_init='dz = this;',
-                 custom_options='autoProcessQueue: false, addRemoveLinks: true, parallelUploads: 20,') }}
-        
+            
             <div id= "boxes">
                 <div class = "folders">
                     <h2>Folders</h2>
