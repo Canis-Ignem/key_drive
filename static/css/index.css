@@ -46,7 +46,8 @@ input[type = "file"] {
 
 .title_page{
     padding: 50px;
-    color: #01FF84
+    color: #01FF84;
+    font-size: 30px;
 }
 
 h2 {
