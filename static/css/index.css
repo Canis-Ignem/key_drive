@@ -24,12 +24,8 @@ input[type = "file"] {
 
 .placeholder{
     z-index:1;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    opacity: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #boxes {
@@ -37,8 +33,7 @@ input[type = "file"] {
     content: "";
     display: table;
     clear: both;
-    z-index: 10;
-    position: relative;
+    z-index: 1;
   }
 
 .files{
