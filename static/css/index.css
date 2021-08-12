@@ -18,6 +18,7 @@ input[type = "file"] {
     height: 470px;
     width: 23%;
     padding: 0% 50px;
+    z-index: 1;
 }
 
 .placeholder{
@@ -37,6 +38,7 @@ input[type = "file"] {
     height: 470px;
     width: 23%;
     padding: 0% 50px;
+    z-index: 1;
 }
 
 .title_page{
