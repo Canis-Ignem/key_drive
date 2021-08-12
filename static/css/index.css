@@ -20,6 +20,10 @@ input[type = "file"] {
     padding: 0% 50px;
 }
 
+.placeholder{
+    z-index: -1;
+}
+
 #boxes {
     top: 15%;
     content: "";
