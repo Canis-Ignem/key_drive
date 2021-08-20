@@ -118,7 +118,7 @@ def sign_in():
                 session['uname'] = user
                 session['email'] = email
                 session['batch'] = batch
-                return 'a'
+                
                 if os.path.isdir( os.path.join("/home", user) ):
                     session['pth'] = os.path.join("/home/", user)
                 else:
@@ -131,6 +131,7 @@ def sign_in():
                     DROPZONE_UPLOAD_ON_CLICK=False
                 
                 )
+                return 'a'
                 dropzone = Dropzone(app)
                 
                 url = url_for('goto',pth = session['pth'], file = "")[:-1]
