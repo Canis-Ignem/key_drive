@@ -135,7 +135,6 @@ def sign_in():
                 dropzone = Dropzone(app)
                 
                 url = url_for('goto',pth = session['pth'], file = "")[:-1]
-                return str(url)
                 return redirect(url)
             else:
                 return "Some of the fields were not correct"
