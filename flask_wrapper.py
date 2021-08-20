@@ -83,8 +83,9 @@ def login():
                     DROPZONE_DEFAULT_MESSAGE ="",
                 )
                 dropzone = Dropzone(app)
-                return "a"
+                
                 url = url_for('goto',pth = session['pth'], file = "")[:-1]
+                return str(url)
                 return redirect(url)
                 
             else:
