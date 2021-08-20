@@ -118,7 +118,7 @@ def sign_in():
                 session['uname'] = user
                 session['email'] = email
                 session['batch'] = batch
-                
+                return 'a'
                 if os.path.isdir( os.path.join("/home", user) ):
                     session['pth'] = os.path.join("/home/", user)
                 else:
