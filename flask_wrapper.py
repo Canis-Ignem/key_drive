@@ -87,7 +87,7 @@ def login():
                 dropzone = Dropzone(app)
                 
                 url = url_for('goto',pth = session['pth'], file = "")[:-1]
-                return url
+                
                 return redirect(url)
                 
             else:
