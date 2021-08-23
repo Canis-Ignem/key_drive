@@ -68,9 +68,10 @@ def login():
         if request.method == "POST":
             user = request.form["uname"].lower()
             if db.get_sum(user) == md5(request.form["psw"]):
-                
+
                 session['uname'] = user
                 session['email'] = db.get_email(user)
+                return "A"
                 if os.path.isdir( os.path.join("/home", user) ):
                     session['pth'] = os.path.join("/home/", user)
                 else:
