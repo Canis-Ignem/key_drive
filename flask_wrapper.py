@@ -83,11 +83,11 @@ def login():
                     DROPZONE_MAX_FILES=5*60*1000,
                     DROPZONE_DEFAULT_MESSAGE ="",
                 )
-                return "A"
+                
                 dropzone = Dropzone(app)
                 
                 url = url_for('goto',pth = session['pth'], file = "")[:-1]
-                
+                return "A"
                 return redirect(url)
                 
             else:
