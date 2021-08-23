@@ -71,12 +71,12 @@ def login():
 
                 session['uname'] = user
                 session['email'] = db.get_email(user)
-                return "A"
+                
                 if os.path.isdir( os.path.join("/home", user) ):
                     session['pth'] = os.path.join("/home/", user)
                 else:
                     return "There is no such user"
-                
+                return "A"
                 app.config.update(
                     UPLOADED_PATH= session['pth'],
                     DROPZONE_MAX_FILE_SIZE=5120,
